@@ -1,0 +1,1568 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AP Chemistry — Score 5 Study Guide</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0d0f14;
+        --surface: #13161e;
+        --surface2: #1a1e2a;
+        --border: #252a38;
+        --accent: #5ee7b0;
+        --accent2: #f7c948;
+        --accent3: #f07167;
+        --accent4: #7eb8f7;
+        --text: #e8eaf0;
+        --muted: #6b7280;
+        --high: #5ee7b0;
+        --med: #f7c948;
+        --low: #f07167;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "DM Sans", sans-serif;
+        font-weight: 300;
+        min-height: 100vh;
+      }
+
+      /* HEADER */
+      header {
+        padding: 48px 40px 32px;
+        border-bottom: 1px solid var(--border);
+        position: relative;
+        overflow: hidden;
+      }
+      header::before {
+        content: "";
+        position: absolute;
+        top: -80px;
+        left: -80px;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(
+          circle,
+          rgba(94, 231, 176, 0.08) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      header::after {
+        content: "";
+        position: absolute;
+        top: 20px;
+        right: 100px;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(
+          circle,
+          rgba(126, 184, 247, 0.06) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .header-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .logo-area h1 {
+        font-family: "Syne", sans-serif;
+        font-weight: 800;
+        font-size: 2.6rem;
+        letter-spacing: -0.04em;
+        line-height: 1;
+      }
+      .logo-area h1 span {
+        color: var(--accent);
+      }
+      .logo-area p {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        font-family: "DM Mono", monospace;
+        letter-spacing: 0.05em;
+      }
+
+      .stats-bar {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+        margin-top: 24px;
+      }
+      .stat {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 14px 20px;
+        min-width: 130px;
+      }
+      .stat-val {
+        font-family: "Syne", sans-serif;
+        font-weight: 700;
+        font-size: 1.8rem;
+        color: var(--accent);
+        line-height: 1;
+      }
+      .stat-label {
+        font-size: 0.75rem;
+        color: var(--muted);
+        margin-top: 4px;
+        font-family: "DM Mono", monospace;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+      #progress-stat {
+        color: var(--accent2);
+      }
+      #pct-stat {
+        color: var(--accent);
+      }
+
+      /* NAV TABS */
+      nav {
+        display: flex;
+        gap: 4px;
+        padding: 20px 40px 0;
+        border-bottom: 1px solid var(--border);
+        overflow-x: auto;
+      }
+      nav button {
+        background: none;
+        border: none;
+        color: var(--muted);
+        font-family: "DM Mono", monospace;
+        font-size: 0.8rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 10px 18px;
+        cursor: pointer;
+        border-bottom: 2px solid transparent;
+        transition: all 0.2s;
+        white-space: nowrap;
+      }
+      nav button:hover {
+        color: var(--text);
+      }
+      nav button.active {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+      }
+
+      /* MAIN LAYOUT */
+      main {
+        padding: 32px 40px;
+        max-width: 1200px;
+      }
+
+      .tab-panel {
+        display: none;
+      }
+      .tab-panel.active {
+        display: block;
+      }
+
+      /* SECTION HEADERS */
+      .section-title {
+        font-family: "Syne", sans-serif;
+        font-weight: 700;
+        font-size: 1.3rem;
+        margin-bottom: 6px;
+        letter-spacing: -0.02em;
+      }
+      .section-sub {
+        color: var(--muted);
+        font-size: 0.85rem;
+        margin-bottom: 24px;
+        font-family: "DM Mono", monospace;
+      }
+
+      /* UNIT CARDS */
+      .unit-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .unit-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        overflow: hidden;
+        transition: border-color 0.2s;
+      }
+      .unit-card:hover {
+        border-color: #353c52;
+      }
+
+      .unit-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 18px 22px;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .unit-number {
+        font-family: "DM Mono", monospace;
+        font-size: 0.7rem;
+        color: var(--muted);
+        min-width: 28px;
+      }
+
+      .unit-name {
+        font-family: "Syne", sans-serif;
+        font-weight: 600;
+        font-size: 1rem;
+        flex: 1;
+      }
+
+      .weight-badge {
+        font-family: "DM Mono", monospace;
+        font-size: 0.72rem;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-weight: 500;
+        white-space: nowrap;
+      }
+      .weight-high {
+        background: rgba(94, 231, 176, 0.15);
+        color: var(--high);
+        border: 1px solid rgba(94, 231, 176, 0.3);
+      }
+      .weight-med {
+        background: rgba(247, 201, 72, 0.15);
+        color: var(--med);
+        border: 1px solid rgba(247, 201, 72, 0.3);
+      }
+      .weight-low {
+        background: rgba(240, 113, 103, 0.12);
+        color: var(--low);
+        border: 1px solid rgba(240, 113, 103, 0.3);
+      }
+
+      .unit-progress-bar {
+        width: 90px;
+        height: 5px;
+        background: var(--border);
+        border-radius: 99px;
+        overflow: hidden;
+        flex-shrink: 0;
+      }
+      .unit-progress-fill {
+        height: 100%;
+        background: var(--accent);
+        border-radius: 99px;
+        transition: width 0.4s ease;
+      }
+
+      .chevron {
+        color: var(--muted);
+        font-size: 0.8rem;
+        transition: transform 0.25s;
+      }
+      .unit-card.open .chevron {
+        transform: rotate(180deg);
+      }
+
+      .unit-body {
+        display: none;
+        padding: 0 22px 22px;
+        border-top: 1px solid var(--border);
+        animation: slideDown 0.2s ease;
+      }
+      .unit-card.open .unit-body {
+        display: block;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-6px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .unit-body-inner {
+        padding-top: 18px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      @media (max-width: 700px) {
+        .unit-body-inner {
+          grid-template-columns: 1fr;
+        }
+        nav {
+          padding: 20px 20px 0;
+        }
+        header,
+        main {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+
+      .col-label {
+        font-family: "DM Mono", monospace;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+        margin-bottom: 10px;
+      }
+
+      /* TOPICS checklist */
+      .topic-list {
+        list-style: none;
+      }
+      .topic-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 5px 0;
+        font-size: 0.88rem;
+        color: #c8cdd8;
+        line-height: 1.4;
+      }
+      .topic-list li input[type="checkbox"] {
+        accent-color: var(--accent);
+        margin-top: 2px;
+        flex-shrink: 0;
+        width: 14px;
+        height: 14px;
+        cursor: pointer;
+      }
+      .topic-list li.done span {
+        text-decoration: line-through;
+        color: var(--muted);
+      }
+
+      /* RESOURCES */
+      .resource-list {
+        list-style: none;
+      }
+      .resource-list li {
+        margin-bottom: 8px;
+      }
+      .resource-list a {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        color: var(--accent4);
+        text-decoration: none;
+        font-size: 0.85rem;
+        transition: color 0.15s;
+      }
+      .resource-list a:hover {
+        color: #aed4ff;
+        text-decoration: underline;
+      }
+      .res-tag {
+        font-family: "DM Mono", monospace;
+        font-size: 0.65rem;
+        padding: 2px 7px;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      .tag-yt {
+        background: rgba(240, 113, 103, 0.2);
+        color: #f07167;
+      }
+      .tag-ap {
+        background: rgba(94, 231, 176, 0.15);
+        color: #5ee7b0;
+      }
+      .tag-web {
+        background: rgba(126, 184, 247, 0.15);
+        color: #7eb8f7;
+      }
+      .tag-book {
+        background: rgba(247, 201, 72, 0.15);
+        color: #f7c948;
+      }
+
+      /* EXAM TIP */
+      .exam-tip {
+        margin-top: 16px;
+        background: rgba(247, 201, 72, 0.07);
+        border-left: 3px solid var(--accent2);
+        border-radius: 0 8px 8px 0;
+        padding: 10px 14px;
+        font-size: 0.83rem;
+        color: #d4b84a;
+        grid-column: 1 / -1;
+      }
+      .exam-tip strong {
+        color: var(--accent2);
+        font-weight: 500;
+      }
+
+      /* ============ SCHEDULE TAB ============ */
+      .schedule-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 16px;
+      }
+      .week-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 20px;
+      }
+      .week-card h3 {
+        font-family: "Syne", sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        margin-bottom: 4px;
+      }
+      .week-card .week-focus {
+        color: var(--accent);
+        font-family: "DM Mono", monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+      .week-card ul {
+        list-style: none;
+        font-size: 0.84rem;
+        color: #b0b7c6;
+      }
+      .week-card ul li {
+        padding: 3px 0;
+        padding-left: 14px;
+        position: relative;
+      }
+      .week-card ul li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--muted);
+        font-size: 0.75rem;
+      }
+      .week-card .hours-badge {
+        display: inline-block;
+        margin-top: 12px;
+        font-family: "DM Mono", monospace;
+        font-size: 0.7rem;
+        color: var(--muted);
+        border: 1px solid var(--border);
+        padding: 3px 10px;
+        border-radius: 99px;
+      }
+
+      /* ============ RESOURCES TAB ============ */
+      .resource-section {
+        margin-bottom: 32px;
+      }
+      .resource-section h3 {
+        font-family: "Syne", sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        margin-bottom: 14px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--border);
+      }
+      .resource-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 12px;
+      }
+      .res-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 16px;
+      }
+      .res-card .rc-title {
+        font-weight: 500;
+        font-size: 0.9rem;
+        margin-bottom: 4px;
+      }
+      .res-card .rc-desc {
+        color: var(--muted);
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+        line-height: 1.5;
+      }
+      .res-card a {
+        color: var(--accent4);
+        font-size: 0.82rem;
+        text-decoration: none;
+        font-family: "DM Mono", monospace;
+      }
+      .res-card a:hover {
+        text-decoration: underline;
+      }
+
+      /* ============ PRACTICE TAB ============ */
+      .practice-section {
+        margin-bottom: 32px;
+      }
+      .practice-section h3 {
+        font-family: "Syne", sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        margin-bottom: 6px;
+      }
+      .practice-section p {
+        color: var(--muted);
+        font-size: 0.85rem;
+        margin-bottom: 14px;
+        line-height: 1.6;
+      }
+      .practice-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .practice-list li {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 12px 16px;
+        font-size: 0.85rem;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .prac-icon {
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+      .prac-link {
+        color: var(--accent4);
+        text-decoration: none;
+        font-size: 0.82rem;
+        font-family: "DM Mono", monospace;
+        margin-left: auto;
+      }
+      .prac-link:hover {
+        text-decoration: underline;
+      }
+
+      /* ============ LEGEND ============ */
+      .legend {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+        font-size: 0.78rem;
+        font-family: "DM Mono", monospace;
+      }
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .legend-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+      }
+      .dot-high {
+        background: var(--high);
+      }
+      .dot-med {
+        background: var(--med);
+      }
+      .dot-low {
+        background: var(--low);
+      }
+
+      /* scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--bg);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #2a2f3f;
+        border-radius: 99px;
+      }
+
+      /* Tip box on schedule */
+      .info-box {
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        border-left: 3px solid var(--accent);
+        border-radius: 0 10px 10px 0;
+        padding: 14px 18px;
+        margin-bottom: 24px;
+        font-size: 0.85rem;
+        line-height: 1.6;
+        color: #c0c7d4;
+      }
+      .info-box strong {
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-top">
+        <div class="logo-area">
+          <h1>AP <span>Chem</span></h1>
+          <p>Score 5 Study Tracker — 6–8 Week Sprint</p>
+        </div>
+      </div>
+      <div class="stats-bar">
+        <div class="stat">
+          <div class="stat-val" id="progress-stat">0 / 9</div>
+          <div class="stat-label">Units Started</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val" id="pct-stat">0%</div>
+          <div class="stat-label">Topics Checked</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val" style="color: var(--accent2)">May</div>
+          <div class="stat-label">Exam Month</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val" style="color: var(--accent4)">5</div>
+          <div class="stat-label">Target Score</div>
+        </div>
+      </div>
+    </header>
+
+    <nav>
+      <button class="active" onclick="switchTab('topics', this)">
+        Topics & Progress
+      </button>
+      <button onclick="switchTab('schedule', this)">Study Schedule</button>
+      <button onclick="switchTab('resources', this)">Resources Hub</button>
+      <button onclick="switchTab('practice', this)">Exam Practice</button>
+    </nav>
+
+    <main>
+      <!-- ========== TOPICS TAB ========== -->
+      <div class="tab-panel active" id="tab-topics">
+        <div class="section-title">All 9 AP Chemistry Units</div>
+        <div class="section-sub">
+          Ranked by exam weighting • Check topics as you study them
+        </div>
+
+        <div class="legend">
+          <div class="legend-item">
+            <div class="legend-dot dot-high"></div>
+            High Priority (≥12% exam weight)
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot dot-med"></div>
+            Medium Priority (7–11%)
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot dot-low"></div>
+            Lower Priority (≤6%)
+          </div>
+        </div>
+
+        <div class="unit-grid" id="unit-grid"></div>
+      </div>
+
+      <!-- ========== SCHEDULE TAB ========== -->
+      <div class="tab-panel" id="tab-schedule">
+        <div class="section-title">Your 7-Week Study Plan</div>
+        <div class="section-sub">
+          ~4–6 hrs/week • Prioritized by exam weight
+        </div>
+
+        <div class="info-box">
+          <strong>Strategy:</strong> Front-load the heaviest exam units
+          (Equilibrium, Kinetics, Thermo, Electrochemistry). Each week has a
+          primary unit + review + practice questions. The final week is pure
+          exam simulation — no new content.
+        </div>
+
+        <div class="schedule-grid" id="schedule-grid"></div>
+      </div>
+
+      <!-- ========== RESOURCES TAB ========== -->
+      <div class="tab-panel" id="tab-resources">
+        <div class="section-title">Curated Resource Hub</div>
+        <div class="section-sub">
+          Best free & paid resources organized by type
+        </div>
+
+        <div class="resource-section">
+          <h3>📺 YouTube Channels</h3>
+          <div class="resource-cards">
+            <div class="res-card">
+              <div class="rc-title">Chad's Chemistry</div>
+              <div class="rc-desc">
+                Best overall AP Chem channel — concise, exam-focused, covers
+                every unit with worked examples.
+              </div>
+              <a href="https://www.youtube.com/@chadsnewchannel" target="_blank"
+                >youtube.com/@chadsnewchannel →</a
+              >
+            </div>
+            <div class="res-card">
+              <div class="rc-title">Tyler DeWitt</div>
+              <div class="rc-desc">
+                Excellent for building intuition from scratch. Great for
+                stoichiometry, atomic theory, and IMFs.
+              </div>
+              <a href="https://www.youtube.com/@tylerdewittvids" target="_blank"
+                >youtube.com/@tylerdewittvids →</a
+              >
+            </div>
+            <div class="res-card">
+              <div class="rc-title">The Organic Chemistry Tutor</div>
+              <div class="rc-desc">
+                Fantastic for kinetics, thermodynamics, equilibrium, and
+                electrochemistry — very thorough.
+              </div>
+              <a
+                href="https://www.youtube.com/@TheOrganicChemistryTutor"
+                target="_blank"
+                >youtube.com/TheOrganicChemistryTutor →</a
+              >
+            </div>
+            <div class="res-card">
+              <div class="rc-title">Allison Tupler Chemistry</div>
+              <div class="rc-desc">
+                Specifically designed for AP Chem. Great exam walkthrough videos
+                and FRQ breakdowns.
+              </div>
+              <a
+                href="https://www.youtube.com/@AllisonTuplerChemistry"
+                target="_blank"
+                >youtube.com/@AllisonTuplerChemistry →</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="resource-section">
+          <h3>🌐 Free Websites & Practice</h3>
+          <div class="resource-cards">
+            <div class="res-card">
+              <div class="rc-title">AP Classroom (College Board)</div>
+              <div class="rc-desc">
+                Official AP practice questions, topic videos, and progress
+                checks. Most important free resource.
+              </div>
+              <a href="https://apclassroom.collegeboard.org" target="_blank"
+                >apclassroom.collegeboard.org →</a
+              >
+            </div>
+            <div class="res-card">
+              <div class="rc-title">Albert.io — AP Chemistry</div>
+              <div class="rc-desc">
+                Thousands of AP-style multiple choice and FRQ practice questions
+                with explanations.
+              </div>
+              <a href="https://www.albert.io/ap-chemistry" target="_blank"
+                >albert.io/ap-chemistry →</a
+              >
+            </div>
+            <div class="res-card">
+              <div class="rc-title">Khan Academy — AP Chemistry</div>
+              <div class="rc-desc">
+                Free concept explanations and practice. Best for Atomic
+                Structure, Gases, and Thermodynamics basics.
+              </div>
+              <a
+                href="https://www.khanacademy.org/science/ap-chemistry-beta"
+                target="_blank"
+                >khanacademy.org/science/ap-chemistry-beta →</a
+              >
+            </div>
+            <div class="res-card">
+              <div class="rc-title">College Board Past FRQs</div>
+              <div class="rc-desc">
+                Free response questions from every past AP Chem exam + scoring
+                guidelines. Essential for exam prep.
+              </div>
+              <a
+                href="https://apcentral.collegeboard.org/courses/ap-chemistry/exam/past-exam-questions"
+                target="_blank"
+                >collegeboard.org — Past FRQs →</a
+              >
+            </div>
+            <div class="res-card">
+              <div class="rc-title">Chemlib.fandom.com</div>
+              <div class="rc-desc">
+                Quick reference for formulas, constants, and concept summaries.
+              </div>
+              <a
+                href="https://chemistry.fandom.com/wiki/AP_Chemistry"
+                target="_blank"
+                >chemistry.fandom.com →</a
+              >
+            </div>
+            <div class="res-card">
+              <div class="rc-title">Sciencemusicvideos (SMV)</div>
+              <div class="rc-desc">
+                Excellent visual explanations for thermodynamics and
+                electrochemistry. Underrated resource.
+              </div>
+              <a
+                href="https://www.sciencemusicvideos.com/ap-chemistry/"
+                target="_blank"
+                >sciencemusicvideos.com →</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="resource-section">
+          <h3>📚 Books & Paid Resources</h3>
+          <div class="resource-cards">
+            <div class="res-card">
+              <div class="rc-title">Barron's AP Chemistry (you have this)</div>
+              <div class="rc-desc">
+                Great for content review and practice tests. Use chapter
+                summaries first, then attempt chapter tests.
+              </div>
+              <a href="#" onclick="return false;" style="color: var(--muted)"
+                >Physical book</a
+              >
+            </div>
+            <div class="res-card">
+              <div class="rc-title">Princeton Review Cracking the AP</div>
+              <div class="rc-desc">
+                More strategy-focused than Barron's. Good if you want
+                test-taking tips and shorter explanations.
+              </div>
+              <a
+                href="https://www.amazon.com/s?k=Princeton+Review+AP+Chemistry"
+                target="_blank"
+                >Amazon →</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== PRACTICE TAB ========== -->
+      <div class="tab-panel" id="tab-practice">
+        <div class="section-title">Exam Practice Strategy</div>
+        <div class="section-sub">
+          The AP Chem exam = 60 MCQ (50%) + 7 FRQ (50%) • 3 hrs 15 min total
+        </div>
+
+        <div class="practice-section">
+          <h3>🎯 How the Exam is Structured</h3>
+          <p>
+            Section I: 60 multiple choice questions in 105 minutes (no
+            calculator for first 15). Section II: 7 free response questions in
+            105 minutes (calculator allowed). FRQs are graded on reasoning and
+            setup — partial credit is generous, so always show work and explain
+            your reasoning.
+          </p>
+
+          <ul class="practice-list">
+            <li>
+              <span class="prac-icon">📋</span> AP Classroom Topic Questions —
+              do after each unit<a
+                class="prac-link"
+                href="https://apclassroom.collegeboard.org"
+                target="_blank"
+                >open →</a
+              >
+            </li>
+            <li>
+              <span class="prac-icon">📝</span> 2023 AP Chem Released FRQs +
+              Answer Key<a
+                class="prac-link"
+                href="https://apcentral.collegeboard.org/courses/ap-chemistry/exam/past-exam-questions"
+                target="_blank"
+                >open →</a
+              >
+            </li>
+            <li>
+              <span class="prac-icon">📝</span> 2022 AP Chem Released FRQs +
+              Answer Key<a
+                class="prac-link"
+                href="https://apcentral.collegeboard.org/courses/ap-chemistry/exam/past-exam-questions"
+                target="_blank"
+                >open →</a
+              >
+            </li>
+            <li>
+              <span class="prac-icon">📝</span> 2019 AP Chem Released Exam (full
+              MCQ + FRQ)<a
+                class="prac-link"
+                href="https://apcentral.collegeboard.org/courses/ap-chemistry/exam/past-exam-questions"
+                target="_blank"
+                >open →</a
+              >
+            </li>
+            <li>
+              <span class="prac-icon">🔢</span> Albert.io MCQ Practice — Unit by
+              Unit<a
+                class="prac-link"
+                href="https://www.albert.io/ap-chemistry"
+                target="_blank"
+                >open →</a
+              >
+            </li>
+            <li>
+              <span class="prac-icon">🎥</span> Allison Tupler FRQ Walkthroughs
+              (YouTube)<a
+                class="prac-link"
+                href="https://www.youtube.com/@AllisonTuplerChemistry"
+                target="_blank"
+                >open →</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="practice-section">
+          <h3>✍️ FRQ Tips for a 5</h3>
+          <ul class="practice-list">
+            <li>
+              <span class="prac-icon">💡</span> Always write units on every
+              number — points are lost for missing units
+            </li>
+            <li>
+              <span class="prac-icon">💡</span> "Justify" or "explain" = full
+              sentences. Never just give a number.
+            </li>
+            <li>
+              <span class="prac-icon">💡</span> If you don't know, attempt
+              anyway — partial credit is very common
+            </li>
+            <li>
+              <span class="prac-icon">💡</span> Memorize the AP reference table
+              structure — you get it on exam day
+            </li>
+            <li>
+              <span class="prac-icon">💡</span> For lab-based questions: always
+              link observations to particle-level explanations
+            </li>
+            <li>
+              <span class="prac-icon">💡</span> Use the correct AP language:
+              "strong acid," "fully dissociates," "rate-determining step"
+            </li>
+          </ul>
+        </div>
+
+        <div class="practice-section">
+          <h3>📅 Practice Test Timeline</h3>
+          <ul class="practice-list">
+            <li>
+              <span class="prac-icon">📆</span> Week 3–4: Do unit-specific MCQ
+              on AP Classroom after each unit
+            </li>
+            <li>
+              <span class="prac-icon">📆</span> Week 5: Attempt past FRQs from
+              2022 or 2023 (open-note first)
+            </li>
+            <li>
+              <span class="prac-icon">📆</span> Week 6: Full timed mock exam
+              (2019 released exam)
+            </li>
+            <li>
+              <span class="prac-icon">📆</span> Week 7: Review mistakes,
+              targeted FRQ practice on weak units
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // ===================== DATA =====================
+      const units = [
+        {
+          num: "U1",
+          name: "Atomic Structure & Properties",
+          weight: "7–9%",
+          priority: "med",
+          topics: [
+            "Moles & molar mass",
+            "Atomic structure (protons, neutrons, electrons)",
+            "Electron configuration & orbital notation",
+            "Photoelectron spectroscopy (PES)",
+            "Periodic trends (IE, electronegativity, atomic radius)",
+            "Mass spectrometry basics",
+          ],
+          resources: [
+            {
+              label: "Tyler DeWitt — Moles & Stoichiometry",
+              url: "https://www.youtube.com/results?search_query=tyler+dewitt+moles+stoichiometry",
+              tag: "yt",
+            },
+            {
+              label: "Chad's — Electron Configuration",
+              url: "https://www.youtube.com/results?search_query=chad%27s+chemistry+electron+configuration+ap",
+              tag: "yt",
+            },
+            {
+              label: "Khan Academy — Atomic Structure",
+              url: "https://www.khanacademy.org/science/ap-chemistry-beta/x2eef969c74e0d802:atomic-structure-and-properties",
+              tag: "web",
+            },
+            {
+              label: "AP Classroom — Unit 1 Progress Check",
+              url: "https://apclassroom.collegeboard.org",
+              tag: "ap",
+            },
+          ],
+          tip: "PES graphs and periodic trends are almost always tested. Know how to read a PES spectrum and explain trends using nuclear charge and shielding.",
+        },
+        {
+          num: "U2",
+          name: "Molecular & Ionic Compound Structure",
+          weight: "7–9%",
+          priority: "med",
+          topics: [
+            "Ionic vs. covalent bonding",
+            "Lewis structures & formal charge",
+            "VSEPR theory & molecular geometry",
+            "Bond polarity & molecular polarity",
+            "Resonance structures",
+            "Intermolecular forces (IMFs)",
+          ],
+          resources: [
+            {
+              label: "Tyler DeWitt — Lewis Structures",
+              url: "https://www.youtube.com/results?search_query=tyler+dewitt+lewis+structures",
+              tag: "yt",
+            },
+            {
+              label: "Chad's — VSEPR & Molecular Geometry",
+              url: "https://www.youtube.com/results?search_query=chad+chemistry+VSEPR+ap+chem",
+              tag: "yt",
+            },
+            {
+              label: "Khan Academy — IMFs",
+              url: "https://www.khanacademy.org/science/ap-chemistry-beta/x2eef969c74e0d802:molecular-and-ionic-compound-structure",
+              tag: "web",
+            },
+            {
+              label: "AP Classroom — Unit 2",
+              url: "https://apclassroom.collegeboard.org",
+              tag: "ap",
+            },
+          ],
+          tip: "IMFs are foundational to many other units. Know hydrogen bonding, dipole-dipole, and London dispersion forces inside out.",
+        },
+        {
+          num: "U3",
+          name: "Intermolecular Forces & Properties",
+          weight: "18–22%",
+          priority: "high",
+          topics: [
+            "Properties of solids, liquids, gases",
+            "Vapor pressure & boiling point",
+            "Solubility rules & dissolving",
+            "Photoelectric effect",
+            "Beer-Lambert Law (spectroscopy)",
+            "Chromatography & separation",
+            "Ideal gas law & kinetic molecular theory",
+          ],
+          resources: [
+            {
+              label: "The Organic Chem Tutor — Ideal Gas Law",
+              url: "https://www.youtube.com/results?search_query=organic+chemistry+tutor+ideal+gas+law+ap+chem",
+              tag: "yt",
+            },
+            {
+              label: "Chad's — IMF & Properties of Matter",
+              url: "https://www.youtube.com/results?search_query=chad+chemistry+intermolecular+forces+ap",
+              tag: "yt",
+            },
+            {
+              label: "Khan — Gases & IMFs",
+              url: "https://www.khanacademy.org/science/ap-chemistry-beta/x2eef969c74e0d802:intermolecular-forces-and-properties",
+              tag: "web",
+            },
+            {
+              label: "AP Classroom — Unit 3 (highest weight!)",
+              url: "https://apclassroom.collegeboard.org",
+              tag: "ap",
+            },
+          ],
+          tip: "This is the SINGLE highest-weighted unit (up to 22%). Prioritize gas laws, IMFs, and spectroscopy. Know how IMF strength explains boiling point, viscosity, and solubility.",
+        },
+        {
+          num: "U4",
+          name: "Chemical Reactions",
+          weight: "7–9%",
+          priority: "med",
+          topics: [
+            "Types of reactions (synthesis, decomposition, redox, precipitation, acid-base)",
+            "Net ionic equations",
+            "Balancing equations",
+            "Stoichiometry & limiting reagents",
+            "Percent yield",
+            "Oxidation states",
+          ],
+          resources: [
+            {
+              label: "Tyler DeWitt — Net Ionic Equations",
+              url: "https://www.youtube.com/results?search_query=tyler+dewitt+net+ionic+equations",
+              tag: "yt",
+            },
+            {
+              label: "Chad's — Stoichiometry & Limiting Reagents",
+              url: "https://www.youtube.com/results?search_query=chad+chemistry+stoichiometry+limiting+reagent",
+              tag: "yt",
+            },
+            {
+              label: "AP Classroom — Unit 4",
+              url: "https://apclassroom.collegeboard.org",
+              tag: "ap",
+            },
+          ],
+          tip: "Net ionic equations appear constantly in FRQs. Practice identifying spectator ions. Know solubility rules (NASPOCBASS is a common mnemonic).",
+        },
+        {
+          num: "U5",
+          name: "Kinetics",
+          weight: "7–9%",
+          priority: "high",
+          topics: [
+            "Reaction rate & rate laws",
+            "Determining rate order from experiments",
+            "Integrated rate laws (0th, 1st, 2nd order)",
+            "Half-life",
+            "Collision theory & activation energy",
+            "Arrhenius equation",
+            "Reaction mechanisms & rate-determining step",
+            "Catalysts",
+          ],
+          resources: [
+            {
+              label: "The Organic Chem Tutor — Kinetics Full Playlist",
+              url: "https://www.youtube.com/results?search_query=organic+chemistry+tutor+kinetics+ap+chemistry",
+              tag: "yt",
+            },
+            {
+              label: "Chad's — Rate Laws & Integrated Rate Laws",
+              url: "https://www.youtube.com/results?search_query=chad+chemistry+kinetics+rate+law+ap",
+              tag: "yt",
+            },
+            {
+              label: "Khan Academy — Kinetics",
+              url: "https://www.khanacademy.org/science/ap-chemistry-beta/x2eef969c74e0d802:kinetics",
+              tag: "web",
+            },
+            {
+              label: "AP Classroom — Unit 5",
+              url: "https://apclassroom.collegeboard.org",
+              tag: "ap",
+            },
+          ],
+          tip: "Kinetics FRQs almost always appear. You'll be given data tables and asked to determine rate order — practice this skill heavily. Know all 3 integrated rate law graphs (conc vs. time plots).",
+        },
+        {
+          num: "U6",
+          name: "Thermodynamics",
+          weight: "7–9%",
+          priority: "high",
+          topics: [
+            "Endothermic vs. exothermic reactions",
+            "Calorimetry & q = mcΔT",
+            "Hess's Law",
+            "Enthalpy of formation (ΔHf°)",
+            "Bond enthalpy calculations",
+            "Entropy (ΔS) — disorder",
+            "Gibbs free energy (ΔG = ΔH − TΔS)",
+            "Spontaneity & temperature dependence",
+          ],
+          resources: [
+            {
+              label: "The Organic Chem Tutor — Thermodynamics",
+              url: "https://www.youtube.com/results?search_query=organic+chemistry+tutor+thermodynamics+ap+chem",
+              tag: "yt",
+            },
+            {
+              label: "Chad's — Gibbs Free Energy & Entropy",
+              url: "https://www.youtube.com/results?search_query=chad+chemistry+gibbs+free+energy+entropy",
+              tag: "yt",
+            },
+            {
+              label: "Khan — Thermodynamics",
+              url: "https://www.khanacademy.org/science/ap-chemistry-beta/x2eef969c74e0d802:thermodynamics",
+              tag: "web",
+            },
+            {
+              label: "AP Classroom — Unit 6",
+              url: "https://apclassroom.collegeboard.org",
+              tag: "ap",
+            },
+          ],
+          tip: "Memorize the 4 ΔG spontaneity cases (ΔH−/ΔS+, ΔH+/ΔS−, etc.). Hess's Law manipulation is a very common FRQ skill. Calorimetry math is straightforward — don't lose easy points.",
+        },
+        {
+          num: "U7",
+          name: "Equilibrium",
+          weight: "15–18%",
+          priority: "high",
+          topics: [
+            "Equilibrium constant (Kc, Kp)",
+            "Reaction quotient (Q) and direction of shift",
+            "ICE tables",
+            "Le Chatelier's Principle",
+            "Acids & bases (Ka, Kb, pKa, pKb)",
+            "pH calculations — strong & weak acids/bases",
+            "Buffer solutions",
+            "Titrations & equivalence point",
+            "Solubility equilibrium (Ksp)",
+          ],
+          resources: [
+            {
+              label: "Chad's — Equilibrium & ICE Tables (best video)",
+              url: "https://www.youtube.com/results?search_query=chad+chemistry+equilibrium+ICE+table+AP",
+              tag: "yt",
+            },
+            {
+              label: "The Organic Chem Tutor — Acids & Bases",
+              url: "https://www.youtube.com/results?search_query=organic+chemistry+tutor+acids+bases+ap+chem",
+              tag: "yt",
+            },
+            {
+              label: "Khan Academy — Acids & Bases",
+              url: "https://www.khanacademy.org/science/ap-chemistry-beta/x2eef969c74e0d802:equilibrium",
+              tag: "web",
+            },
+            {
+              label: "AP Classroom — Unit 7 (2nd highest weight!)",
+              url: "https://apclassroom.collegeboard.org",
+              tag: "ap",
+            },
+          ],
+          tip: "Units 7 alone is ~17% of the exam. Master ICE tables and buffer calculations. Le Chatelier's appears in almost every FRQ that involves equilibrium — always explain in terms of Q vs. K.",
+        },
+        {
+          num: "U8",
+          name: "Acids & Bases",
+          weight: "11–15%",
+          priority: "high",
+          topics: [
+            "Strong vs. weak acids/bases",
+            "pH and pOH calculations",
+            "Ka and Kb expressions",
+            "Conjugate acid-base pairs",
+            "Buffer systems (Henderson-Hasselbalch)",
+            "Acid-base titration curves",
+            "Amphoteric species",
+            "Polyprotic acids",
+          ],
+          resources: [
+            {
+              label: "Chad's — Acids & Bases Complete Playlist",
+              url: "https://www.youtube.com/results?search_query=chad+chemistry+acids+bases+ap+chem",
+              tag: "yt",
+            },
+            {
+              label: "The Organic Chem Tutor — Titrations",
+              url: "https://www.youtube.com/results?search_query=organic+chemistry+tutor+titration+ap+chem",
+              tag: "yt",
+            },
+            {
+              label: "Khan — Buffers & Titrations",
+              url: "https://www.khanacademy.org/science/ap-chemistry-beta/x2eef969c74e0d802:acids-and-bases",
+              tag: "web",
+            },
+            {
+              label: "AP Classroom — Unit 8",
+              url: "https://apclassroom.collegeboard.org",
+              tag: "ap",
+            },
+          ],
+          tip: "Acids & Bases overlaps heavily with Equilibrium (Unit 7). Study them back-to-back. Titration curve shapes are commonly tested — know equivalence point, half-equivalence point, and buffer regions.",
+        },
+        {
+          num: "U9",
+          name: "Electrochemistry",
+          weight: "7–9%",
+          priority: "high",
+          topics: [
+            "Oxidation-reduction reactions",
+            "Galvanic (voltaic) cells",
+            "Standard reduction potentials (E°)",
+            "Cell potential (E°cell = E°cathode − E°anode)",
+            "Electrolytic cells",
+            "Faraday's law & electrolysis math",
+            "Nernst equation",
+            "ΔG and Electrochemistry relationship",
+          ],
+          resources: [
+            {
+              label: "The Organic Chem Tutor — Electrochemistry",
+              url: "https://www.youtube.com/results?search_query=organic+chemistry+tutor+electrochemistry+ap+chem",
+              tag: "yt",
+            },
+            {
+              label: "Chad's — Galvanic Cells & Cell Notation",
+              url: "https://www.youtube.com/results?search_query=chad+chemistry+electrochemistry+galvanic+cell+AP",
+              tag: "yt",
+            },
+            {
+              label: "Khan — Electrochemistry",
+              url: "https://www.khanacademy.org/science/ap-chemistry-beta/x2eef969c74e0d802:electrochemistry",
+              tag: "web",
+            },
+            {
+              label: "AP Classroom — Unit 9",
+              url: "https://apclassroom.collegeboard.org",
+              tag: "ap",
+            },
+          ],
+          tip: "Always know which electrode is anode (oxidation) and cathode (reduction): 'AN OX' and 'RED CAT'. Cell notation format is frequently tested. The Nernst equation connects electrochemistry to equilibrium.",
+        },
+      ];
+
+      const schedule = [
+        {
+          week: "Week 1",
+          focus: "Foundations",
+          tasks: [
+            "Unit 1: Atomic Structure (moles, electron config, periodic trends)",
+            "Unit 2: Bonding, Lewis structures, VSEPR, IMFs",
+            "AP Classroom Unit 1 & 2 progress checks",
+            "Watch 2–3 Tyler DeWitt videos on atomic structure",
+          ],
+          hours: "~5 hrs",
+        },
+        {
+          week: "Week 2",
+          focus: "High-Priority: Unit 3 — Properties",
+          tasks: [
+            "Unit 3: Gases (ideal gas law, KMT), vapor pressure, solubility",
+            "Unit 3: Spectroscopy (Beer-Lambert, photoelectric effect)",
+            "AP Classroom Unit 3 progress check (this is 18–22% of exam!)",
+            "Practice 5–10 MCQ on gases and IMFs",
+          ],
+          hours: "~5 hrs",
+        },
+        {
+          week: "Week 3",
+          focus: "Reactions, Kinetics",
+          tasks: [
+            "Unit 4: Reaction types, net ionic equations, stoichiometry",
+            "Unit 5: Rate laws, rate order from data tables, integrated rate laws",
+            "Practice determining rate order from experimental data",
+            "AP Classroom Unit 4 & 5 progress checks",
+          ],
+          hours: "~5 hrs",
+        },
+        {
+          week: "Week 4",
+          focus: "Thermodynamics + Equilibrium Start",
+          tasks: [
+            "Unit 6: Calorimetry, Hess's Law, Gibbs free energy (ΔG)",
+            "Unit 7 Start: Kc/Kp, Q vs. K, ICE tables",
+            "Do 1 past FRQ on thermodynamics (check collegeboard.org)",
+            "AP Classroom Units 6 & 7 part 1",
+          ],
+          hours: "~6 hrs",
+        },
+        {
+          week: "Week 5",
+          focus: "Equilibrium + Acids & Bases",
+          tasks: [
+            "Unit 7 Finish: Le Chatelier's, Ksp, buffers",
+            "Unit 8: Strong/weak acids, pH calculations, titration curves",
+            "Henderson-Hasselbalch equation practice problems",
+            "Do 2 past FRQs on acids/bases and equilibrium",
+          ],
+          hours: "~6 hrs",
+        },
+        {
+          week: "Week 6",
+          focus: "Electrochemistry + Full Review",
+          tasks: [
+            "Unit 9: Galvanic cells, E°cell, electrolysis, Nernst equation",
+            "Review any weak units using Barron's chapter tests",
+            "Take a FULL timed mock exam (2019 released exam)",
+            "Score and deeply review every missed question",
+          ],
+          hours: "~6 hrs",
+        },
+        {
+          week: "Week 7",
+          focus: "Exam Simulation & Final Polish",
+          tasks: [
+            "No new content — only review and exam practice",
+            "Do 3–4 past year FRQs under timed conditions",
+            "Review AP formula sheet — know where everything is",
+            "Focus on your 2–3 weakest topics only",
+            "Rest the night before — you're ready!",
+          ],
+          hours: "~4 hrs",
+        },
+      ];
+
+      // ===================== RENDER UNITS =====================
+      function renderUnits() {
+        const grid = document.getElementById("unit-grid");
+        grid.innerHTML = "";
+        units.forEach((u, idx) => {
+          const card = document.createElement("div");
+          card.className = "unit-card";
+          card.dataset.idx = idx;
+
+          const checked = getChecked(idx);
+          const total = u.topics.length;
+          const pct = total ? Math.round((checked / total) * 100) : 0;
+
+          const resourcesHTML = u.resources
+            .map(
+              (r) => `
+      <li><a href="${r.url}" target="_blank">
+        <span class="res-tag tag-${r.tag}">${r.tag.toUpperCase()}</span>
+        ${r.label}
+      </a></li>`,
+            )
+            .join("");
+
+          const topicsHTML = u.topics
+            .map((t, ti) => {
+              const isDone = isTopicDone(idx, ti);
+              return `<li class="${isDone ? "done" : ""}">
+        <input type="checkbox" ${isDone ? "checked" : ""} onchange="toggleTopic(${idx}, ${ti}, this)">
+        <span>${t}</span>
+      </li>`;
+            })
+            .join("");
+
+          card.innerHTML = `
+      <div class="unit-header" onclick="toggleCard(this)">
+        <span class="unit-number">${u.num}</span>
+        <span class="unit-name">${u.name}</span>
+        <span class="weight-badge weight-${u.priority}">${u.weight}</span>
+        <div class="unit-progress-bar"><div class="unit-progress-fill" style="width:${pct}%"></div></div>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="unit-body">
+        <div class="unit-body-inner">
+          <div>
+            <div class="col-label">Topics to Master</div>
+            <ul class="topic-list">${topicsHTML}</ul>
+          </div>
+          <div>
+            <div class="col-label">Resources</div>
+            <ul class="resource-list">${resourcesHTML}</ul>
+          </div>
+          <div class="exam-tip"><strong>⚡ Exam Tip:</strong> ${u.tip}</div>
+        </div>
+      </div>
+    `;
+          grid.appendChild(card);
+        });
+        updateStats();
+      }
+
+      function toggleCard(header) {
+        const card = header.closest(".unit-card");
+        card.classList.toggle("open");
+      }
+
+      // ===================== TOPIC TRACKING =====================
+      function storageKey(unitIdx, topicIdx) {
+        return `ap_chem_u${unitIdx}_t${topicIdx}`;
+      }
+
+      function isTopicDone(unitIdx, topicIdx) {
+        return localStorage.getItem(storageKey(unitIdx, topicIdx)) === "1";
+      }
+
+      function getChecked(unitIdx) {
+        return units[unitIdx].topics.filter((_, ti) => isTopicDone(unitIdx, ti))
+          .length;
+      }
+
+      function toggleTopic(unitIdx, topicIdx, cb) {
+        localStorage.setItem(
+          storageKey(unitIdx, topicIdx),
+          cb.checked ? "1" : "0",
+        );
+        const li = cb.closest("li");
+        li.classList.toggle("done", cb.checked);
+        updateProgressBar(unitIdx);
+        updateStats();
+      }
+
+      function updateProgressBar(unitIdx) {
+        const cards = document.querySelectorAll(".unit-card");
+        const card = cards[unitIdx];
+        if (!card) return;
+        const total = units[unitIdx].topics.length;
+        const checked = getChecked(unitIdx);
+        const pct = total ? Math.round((checked / total) * 100) : 0;
+        const fill = card.querySelector(".unit-progress-fill");
+        if (fill) fill.style.width = pct + "%";
+      }
+
+      function updateStats() {
+        const totalTopics = units.reduce((a, u) => a + u.topics.length, 0);
+        let doneTopics = 0;
+        let unitsStarted = 0;
+        units.forEach((u, ui) => {
+          const c = getChecked(ui);
+          doneTopics += c;
+          if (c > 0) unitsStarted++;
+        });
+        document.getElementById("progress-stat").textContent =
+          `${unitsStarted} / ${units.length}`;
+        document.getElementById("pct-stat").textContent =
+          `${Math.round((doneTopics / totalTopics) * 100)}%`;
+      }
+
+      // ===================== RENDER SCHEDULE =====================
+      function renderSchedule() {
+        const grid = document.getElementById("schedule-grid");
+        grid.innerHTML = "";
+        schedule.forEach((w) => {
+          const card = document.createElement("div");
+          card.className = "week-card";
+          card.innerHTML = `
+      <h3>${w.week}</h3>
+      <div class="week-focus">${w.focus}</div>
+      <ul>${w.tasks.map((t) => `<li>${t}</li>`).join("")}</ul>
+      <span class="hours-badge">${w.hours}</span>
+    `;
+          grid.appendChild(card);
+        });
+      }
+
+      // ===================== TAB SWITCHING =====================
+      function switchTab(name, btn) {
+        document
+          .querySelectorAll(".tab-panel")
+          .forEach((p) => p.classList.remove("active"));
+        document
+          .querySelectorAll("nav button")
+          .forEach((b) => b.classList.remove("active"));
+        document.getElementById("tab-" + name).classList.add("active");
+        btn.classList.add("active");
+      }
+
+      // ===================== INIT =====================
+      renderUnits();
+      renderSchedule();
+    </script>
+  </body>
+</html>
